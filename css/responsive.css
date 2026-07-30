@@ -1,0 +1,350 @@
+@media (max-width: 389px) {
+  .container {
+    width: min(calc(100% - 1.25rem), var(--container));
+  }
+
+  .nav-shell {
+    padding-inline: .7rem;
+  }
+
+  .brand > span:last-child {
+    font-size: .98rem;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .trust-row {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-details {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item,
+  .gallery-item--tall {
+    grid-row: span 1;
+    min-height: 17rem;
+  }
+}
+
+@media (min-width: 390px) {
+  .container {
+    width: min(calc(100% - 2rem), var(--container));
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: min(calc(100% - 3rem), var(--container));
+  }
+
+  .hero-content {
+    padding-block-end: 5.5rem;
+  }
+
+  .trust-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .contaminant-grid,
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 4.8rem;
+  }
+
+  .section-heading {
+    grid-template-columns: minmax(0, 1.35fr) minmax(17rem, .65fr);
+    align-items: end;
+  }
+
+  .section-heading--center {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-content {
+    padding-block-end: 6rem;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(2, 6, 23, .9) 0%, rgba(2, 6, 23, .64) 44%, rgba(2, 6, 23, .08) 79%),
+      linear-gradient(0deg, rgba(2, 6, 23, .7) 0%, transparent 42%);
+  }
+
+  .scroll-cue {
+    display: block;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .stat {
+    min-height: 11rem;
+  }
+
+  .stat:not(:last-child) {
+    border-inline-end: 1px solid var(--color-border);
+  }
+
+  .stat:nth-child(-n+2) {
+    border-block-end: 0;
+  }
+
+  .performance-layout,
+  .contact-shell {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .comparison {
+    border-width: .6rem;
+    border-radius: var(--radius-xl);
+  }
+
+  .process-timeline {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    padding-block-start: 1rem;
+  }
+
+  .process-timeline::before,
+  .process-timeline::after {
+    inset-block-start: 2.7rem;
+    inset-block-end: auto;
+    inset-inline: 0;
+    width: 100%;
+    height: .12rem;
+  }
+
+  .process-timeline::after {
+    transform: scaleX(var(--timeline-progress, 0));
+    transform-origin: left;
+  }
+
+  .process-step {
+    display: block;
+    padding-inline-end: 1.4rem;
+    padding-block-start: 0;
+  }
+
+  .process-number {
+    inset-block-start: 5rem;
+    inset-inline-end: 1rem;
+  }
+
+  .process-icon {
+    margin-block-end: 2rem;
+  }
+
+  .process-step h3 {
+    margin-block-start: 0;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .benefit {
+    min-height: 14rem;
+    padding: 1.5rem;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .price-card--featured {
+    min-height: 33rem;
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 15rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-item:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .testimonial-track {
+    grid-auto-columns: calc((100% - 1rem) / 2);
+  }
+
+  .faq-layout {
+    grid-template-columns: minmax(15rem, .65fr) minmax(0, 1.35fr);
+  }
+
+  .faq-intro {
+    position: sticky;
+    inset-block-start: calc(var(--header-h) + 2rem);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.6fr repeat(3, 1fr);
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-shell {
+    padding-inline: 1.15rem .7rem;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 1.8vw, 1.8rem);
+  }
+
+  .nav-cta {
+    display: inline-flex;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .hero-media img {
+    object-position: center;
+  }
+
+  .contaminant-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .testimonial-track {
+    grid-auto-columns: calc((100% - 2rem) / 3);
+  }
+
+  .testimonial {
+    min-height: 27rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .site-nav {
+    position: fixed;
+    inset-block-start: calc(var(--header-h) + 1.4rem);
+    inset-inline: 1rem;
+    z-index: 99;
+    display: grid;
+    gap: .2rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, .97);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-.7rem) scale(.98);
+    transition: opacity var(--duration), transform var(--duration) var(--ease);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .site-nav a {
+    padding: .9rem 1rem;
+    border-radius: .75rem;
+    color: var(--color-dark);
+    font-size: .95rem;
+  }
+
+  .site-nav a:hover,
+  .site-nav a.is-active {
+    background: #f0fdf4;
+    color: var(--color-accent-dark);
+  }
+
+  .site-nav a::after {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: min(calc(100% - 5rem), var(--container));
+  }
+
+  .hero-content {
+    padding-block-end: 7rem;
+  }
+
+  .comparison {
+    max-width: 70rem;
+    margin-inline: auto;
+  }
+
+  .contaminant-card > div,
+  .service-card__body {
+    padding: 1.8rem;
+  }
+
+  .benefit {
+    min-height: 15rem;
+    padding: 1.8rem;
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 16.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container: 82rem;
+  }
+
+  .hero-content {
+    padding-block-end: 8rem;
+  }
+
+  .nav-shell {
+    padding-inline: 1.35rem .75rem;
+  }
+}

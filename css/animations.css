@@ -1,0 +1,107 @@
+@keyframes cue-scroll {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 1.25rem);
+  }
+}
+
+@keyframes soft-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 .25rem rgba(34, 197, 94, .14);
+  }
+  50% {
+    box-shadow: 0 0 0 .45rem rgba(34, 197, 94, .05);
+  }
+}
+
+.scroll-cue span {
+  animation: cue-scroll 1.8s var(--ease) infinite;
+}
+
+.live-dot {
+  animation: soft-pulse 2.4s ease-in-out infinite;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 600ms var(--ease),
+    transform 600ms var(--ease);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero .reveal:nth-child(2) {
+  transition-delay: 60ms;
+}
+
+.hero .reveal:nth-child(3) {
+  transition-delay: 120ms;
+}
+
+.hero .reveal:nth-child(4) {
+  transition-delay: 180ms;
+}
+
+.hero .reveal:nth-child(5) {
+  transition-delay: 240ms;
+}
+
+.performance-card.is-visible .bar {
+  transform: scaleX(1);
+  transition: transform 900ms var(--ease);
+}
+
+.performance-card.is-visible .bar--light {
+  transition-delay: 100ms;
+}
+
+.performance-card.is-visible .bar--heavy {
+  transition-delay: 200ms;
+}
+
+.lightbox[open] {
+  animation: lightbox-in 240ms var(--ease);
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(.97) translateY(.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .bar {
+    transform: scaleX(1);
+  }
+}
