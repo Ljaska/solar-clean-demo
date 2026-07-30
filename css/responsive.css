@@ -221,6 +221,13 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .price-card .button {
+    padding-inline: .75rem;
+    white-space: nowrap;
+  }
+}
+
 @media (min-width: 992px) {
   .nav-shell {
     padding-inline: 1.15rem .7rem;
@@ -242,6 +249,16 @@
 
   .hero-media img {
     object-position: center;
+  }
+
+  .hero {
+    height: 100svh;
+    min-height: 0;
+    max-height: 67.5rem;
+  }
+
+  .hero-content {
+    padding-block: calc(var(--header-h) + clamp(2.75rem, 5vh, 4.25rem)) clamp(3.5rem, 5.5vh, 5.25rem);
   }
 
   .contaminant-grid {
@@ -297,7 +314,7 @@
 
   .site-nav a:hover,
   .site-nav a.is-active {
-    background: #f0fdf4;
+    background: var(--color-accent-pale);
     color: var(--color-accent-dark);
   }
 
@@ -309,10 +326,6 @@
 @media (min-width: 1200px) {
   .container {
     width: min(calc(100% - 5rem), var(--container));
-  }
-
-  .hero-content {
-    padding-block-end: 7rem;
   }
 
   .comparison {
@@ -338,10 +351,6 @@
 @media (min-width: 1440px) {
   :root {
     --container: 82rem;
-  }
-
-  .hero-content {
-    padding-block-end: 8rem;
   }
 
   .nav-shell {

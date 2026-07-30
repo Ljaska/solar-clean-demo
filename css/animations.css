@@ -58,19 +58,6 @@
   transition-delay: 240ms;
 }
 
-.performance-card.is-visible .bar {
-  transform: scaleX(1);
-  transition: transform 900ms var(--ease);
-}
-
-.performance-card.is-visible .bar--light {
-  transition-delay: 100ms;
-}
-
-.performance-card.is-visible .bar--heavy {
-  transition-delay: 200ms;
-}
-
 .lightbox[open] {
   animation: lightbox-in 240ms var(--ease);
 }

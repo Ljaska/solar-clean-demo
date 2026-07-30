@@ -23,3 +23,6 @@ Before launch, replace the temporary SolarSpark company details, domain, address
 ## Accessibility and performance
 
 The site uses semantic landmarks, keyboard-accessible interactive controls, visible focus states, reduced-motion support, intrinsic image dimensions, responsive image sources and lazy loading below the fold.
+
+This repository is published as a portfolio demonstration only.
+Reuse or redistribution of the code or design is not permitted without permission.
