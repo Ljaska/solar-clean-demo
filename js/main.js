@@ -221,15 +221,16 @@
   let lightboxTrigger = null;
 
   if (lightbox && lightboxImage && lightboxCaption && lightboxClose) {
-    document.querySelectorAll("[data-lightbox-src]").forEach((item) => {
-      item.addEventListener("click", () => {
-        lightboxTrigger = item;
-        lightboxImage.src = item.dataset.lightboxSrc;
-        lightboxImage.alt = item.dataset.lightboxAlt;
-        lightboxCaption.textContent = item.dataset.lightboxAlt;
-        lightbox.showModal();
-        document.body.classList.add("lightbox-open");
-      });
+    document.addEventListener("click", (event) => {
+      const item = event.target.closest("[data-lightbox-src]");
+      if (!item) return;
+      lightboxTrigger = item;
+      lightboxImage.style.backgroundImage = `url("${item.dataset.lightboxSrc}")`;
+      lightboxImage.style.setProperty("--crop-position", item.dataset.lightboxPosition);
+      lightboxImage.setAttribute("aria-label", item.dataset.lightboxAlt);
+      lightboxCaption.textContent = item.dataset.lightboxAlt;
+      lightbox.showModal();
+      document.body.classList.add("lightbox-open");
     });
 
     const closeLightbox = () => {
@@ -246,48 +247,6 @@
     });
   }
 
-  const form = document.querySelector("[data-quote-form]");
-  if (form) {
-    const success = form.querySelector(".form-success");
-    const fields = Array.from(form.querySelectorAll("input, select, textarea"));
-
-    const errorMessage = (field) => {
-      const messages = window.SuncleanI18n?.get()?.form?.errors || {};
-      if (field.validity.valueMissing) return messages.required || "Please complete this field.";
-      if (field.validity.patternMismatch) return messages.phone || "Please enter a valid phone number.";
-      if (field.validity.tooShort) return messages.short || "Please provide more complete information.";
-      return messages.required || "Please check this field.";
-    };
-
-    const validateField = (field) => {
-      const error = form.querySelector(`[data-error-for="${field.name}"]`);
-      const isValid = field.checkValidity();
-      field.setAttribute("aria-invalid", String(!isValid));
-      if (error) error.textContent = isValid ? "" : errorMessage(field);
-      return isValid;
-    };
-
-    fields.forEach((field) => {
-      field.addEventListener("blur", () => validateField(field));
-      field.addEventListener("input", () => {
-        if (field.getAttribute("aria-invalid") === "true") validateField(field);
-      });
-    });
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const invalid = fields.filter((field) => !validateField(field));
-      if (invalid.length) {
-        invalid[0].focus();
-        return;
-      }
-      success.hidden = false;
-      success.focus();
-      form.reset();
-      fields.forEach((field) => field.removeAttribute("aria-invalid"));
-    });
-  }
-
   const year = document.querySelector("[data-year]");
   if (year) year.textContent = String(new Date().getFullYear());
 
@@ -297,7 +256,12 @@
     try {
       await navigator.clipboard.writeText(button.dataset.copyValue);
       button.textContent = "✓";
-      window.setTimeout(() => { button.textContent = "⧉"; }, 1400);
+      const copied = window.SuncleanI18n?.get()?.contact?.copied || "Copied";
+      button.setAttribute("aria-label", copied);
+      window.setTimeout(() => {
+        button.textContent = "⧉";
+        button.setAttribute("aria-label", window.SuncleanI18n?.get()?.contact?.copy || "Copy");
+      }, 1400);
     } catch {
       button.focus();
     }

@@ -37,7 +37,7 @@
     min-height: 17rem;
   }
 
-  .service-comparison-grid { grid-template-columns: 1fr; }
+  .service-gallery-grid { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 390px) {
@@ -62,11 +62,7 @@
   .contaminant-grid,
   .services-grid,
   .pricing-grid--four,
-  .promotions-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .form-row {
+  .service-gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -124,13 +120,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .comparison {
-    border-width: .6rem;
-    border-radius: var(--radius-xl);
-  }
-
-  .service-comparison-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
   .process-timeline {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
@@ -186,8 +175,6 @@
   }
 
   .pricing-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
-  .promotions-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
   .price-card--featured {
     min-height: 33rem;
   }
@@ -337,11 +324,6 @@
 @media (min-width: 1200px) {
   .container {
     width: min(calc(100% - 5rem), var(--container));
-  }
-
-  .comparison {
-    max-width: 70rem;
-    margin-inline: auto;
   }
 
   .contaminant-card > div,
