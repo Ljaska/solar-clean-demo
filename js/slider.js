@@ -1,33 +1,37 @@
 (() => {
   "use strict";
 
-  const comparison = document.querySelector("[data-comparison]");
-  const range = document.querySelector("[data-comparison-range]");
-  const beforeImage = comparison?.querySelector(".comparison__before img");
-
-  if (comparison && range && beforeImage) {
-    const updateComparisonWidth = () => {
-      beforeImage.style.width = `${comparison.clientWidth}px`;
+  const bindComparisons = () => {
+  document.querySelectorAll("[data-comparison]").forEach((comparison) => {
+    const range = comparison.querySelector("[data-comparison-range]");
+    if (!range || range.dataset.bound === "true") return;
+    range.dataset.bound = "true";
+    const beforeImage = comparison.querySelector(".service-comparison__before .service-comparison__image");
+    const updateWidth = () => {
+      if (beforeImage) beforeImage.style.width = `${comparison.clientWidth}px`;
     };
-
     const updateComparison = () => {
       const value = Number(range.value);
       comparison.style.setProperty("--position", `${value}%`);
+      const dictionary = window.SuncleanI18n?.get()?.results;
       range.setAttribute(
         "aria-valuetext",
         value === 0
-          ? "All after cleaning"
+          ? dictionary?.after || "After"
           : value === 100
-            ? "All before cleaning"
-            : `${value} percent before cleaning and ${100 - value} percent after cleaning`
+            ? dictionary?.before || "Before"
+            : `${dictionary?.before || "Before"} ${value}%, ${dictionary?.after || "After"} ${100 - value}%`
       );
     };
 
     range.addEventListener("input", updateComparison);
-    window.addEventListener("resize", updateComparisonWidth, { passive: true });
-    updateComparisonWidth();
+    window.addEventListener("resize", updateWidth, { passive: true });
+    updateWidth();
     updateComparison();
-  }
+  });
+  };
+  bindComparisons();
+  window.addEventListener("sunclean:language", bindComparisons);
 
   const track = document.querySelector("[data-testimonial-track]");
   const previous = document.querySelector("[data-testimonial-prev]");

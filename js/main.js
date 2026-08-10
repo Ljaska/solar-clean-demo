@@ -22,7 +22,7 @@
     if (!menuToggle || !nav || !header) return;
     const wasOpen = menuToggle.getAttribute("aria-expanded") === "true";
     menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open menu");
+    menuToggle.setAttribute("aria-label", window.SuncleanI18n?.get()?.ui?.openMenu || "Open menu");
     nav.classList.remove("is-open");
     header.classList.remove("is-menu-open");
     document.body.classList.remove("menu-open");
@@ -36,7 +36,8 @@
     menuToggle.addEventListener("click", () => {
       const willOpen = menuToggle.getAttribute("aria-expanded") !== "true";
       menuToggle.setAttribute("aria-expanded", String(willOpen));
-      menuToggle.setAttribute("aria-label", willOpen ? "Close menu" : "Open menu");
+      const ui = window.SuncleanI18n?.get()?.ui;
+      menuToggle.setAttribute("aria-label", willOpen ? ui?.closeMenu || "Close menu" : ui?.openMenu || "Open menu");
       nav.classList.toggle("is-open", willOpen);
       header.classList.toggle("is-menu-open", willOpen);
       document.body.classList.toggle("menu-open", willOpen);
@@ -248,14 +249,14 @@
   const form = document.querySelector("[data-quote-form]");
   if (form) {
     const success = form.querySelector(".form-success");
-    const fields = Array.from(form.querySelectorAll("input, textarea"));
+    const fields = Array.from(form.querySelectorAll("input, select, textarea"));
 
     const errorMessage = (field) => {
-      if (field.validity.valueMissing) return field.type === "checkbox" ? "Please confirm before continuing." : "Please complete this field.";
-      if (field.validity.typeMismatch) return "Please enter a valid email address.";
-      if (field.validity.patternMismatch) return "Please enter a valid phone number.";
-      if (field.validity.tooShort) return `Please use at least ${field.minLength} characters.`;
-      return "Please check this field.";
+      const messages = window.SuncleanI18n?.get()?.form?.errors || {};
+      if (field.validity.valueMissing) return messages.required || "Please complete this field.";
+      if (field.validity.patternMismatch) return messages.phone || "Please enter a valid phone number.";
+      if (field.validity.tooShort) return messages.short || "Please provide more complete information.";
+      return messages.required || "Please check this field.";
     };
 
     const validateField = (field) => {
@@ -289,4 +290,16 @@
 
   const year = document.querySelector("[data-year]");
   if (year) year.textContent = String(new Date().getFullYear());
+
+  document.addEventListener("click", async (event) => {
+    const button = event.target.closest("[data-copy-value]");
+    if (!button) return;
+    try {
+      await navigator.clipboard.writeText(button.dataset.copyValue);
+      button.textContent = "✓";
+      window.setTimeout(() => { button.textContent = "⧉"; }, 1400);
+    } catch {
+      button.focus();
+    }
+  });
 })();

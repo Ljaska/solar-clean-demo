@@ -36,6 +36,8 @@
     grid-row: span 1;
     min-height: 17rem;
   }
+
+  .service-comparison-grid { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 390px) {
@@ -58,7 +60,9 @@
   }
 
   .contaminant-grid,
-  .services-grid {
+  .services-grid,
+  .pricing-grid--four,
+  .promotions-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -125,6 +129,8 @@
     border-radius: var(--radius-xl);
   }
 
+  .service-comparison-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
   .process-timeline {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
@@ -178,6 +184,9 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
   }
+
+  .pricing-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+  .promotions-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .price-card--featured {
     min-height: 33rem;
@@ -268,6 +277,8 @@
   .services-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .services-grid--business { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .testimonial-track {
     grid-auto-columns: calc((100% - 2rem) / 3);

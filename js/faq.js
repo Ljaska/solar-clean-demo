@@ -1,9 +1,9 @@
 (() => {
   "use strict";
 
+  const bindFaq = () => {
   const faq = document.querySelector("[data-faq]");
   if (!faq) return;
-
   const buttons = Array.from(faq.querySelectorAll("button[aria-controls]"));
 
   const closeItem = (button) => {
@@ -41,4 +41,7 @@
       buttons[targetIndex].focus();
     });
   });
+  };
+  bindFaq();
+  window.addEventListener("sunclean:language", bindFaq);
 })();

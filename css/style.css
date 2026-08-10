@@ -707,6 +707,35 @@ h3 {
   color: #fff;
 }
 
+.nav-actions { display: flex; align-items: center; gap: .7rem; }
+.language-switcher { display: flex; padding: .2rem; border: 1px solid var(--color-border); border-radius: 999px; background: rgba(255,255,255,.66); }
+.language-switcher button { min-width: 2rem; padding: .25rem; border: 0; border-radius: 999px; background: transparent; color: var(--color-muted); font-size: .67rem; font-weight: 800; cursor: pointer; }
+.language-switcher button[aria-pressed="true"] { background: var(--color-dark); color: #fff; }
+.about-layout { display: grid; gap: 1rem; max-width: 58rem; color: var(--color-muted); }
+.about-layout p { margin: 0; padding: 1.1rem 1.25rem; border-left: 2px solid var(--color-accent); background: var(--color-accent-pale); }
+.services-grid--business { grid-template-columns: 1fr; }
+.services-grid--business .service-card { display: block; min-height: 0; }
+.services-grid--business .service-card__body { padding: clamp(1.3rem, 3vw, 2rem); }
+.services-grid--business .service-card p { color: var(--color-muted); line-height: 1.65; }
+.pricing-grid--four { grid-template-columns: 1fr; align-items: stretch; }
+.pricing-grid--four .price-card { min-height: 24rem; }
+.pricing-grid--four .price-card > p:not(.price):not(.price-kicker) { margin-block: 0 2rem; color: var(--color-muted); }
+.pricing-grid--four .price-card--featured > p:not(.price):not(.price-kicker) { color: #cbd5e1; }
+.pricing-grid--four .price-card .button { margin-block-start: auto; }
+.promotions-section { background: #eef3f7; }
+.promotions-grid { display: grid; align-items: start; gap: 1rem; }
+.promotion-card { position: relative; min-height: 13rem; padding: 1.6rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: #fff; box-shadow: var(--shadow-sm); }
+.promotion-card--plan { min-height: 25rem; }
+.promotion-card h3 { max-width: 85%; margin: 0 0 .8rem; }
+.promotion-card p { margin: 0; color: var(--color-muted); }
+.promotion-card ul { display: grid; gap: .65rem; padding: 1.2rem 0 0; margin: 1.2rem 0 0; border-block-start: 1px solid var(--color-border); list-style: none; }
+.promotion-card li { position: relative; padding-inline-start: 1.25rem; color: var(--color-muted); font-size: .82rem; line-height: 1.5; }
+.promotion-card li::before { content: ""; position: absolute; inset-block-start: .48rem; inset-inline-start: 0; width: .45rem; height: .45rem; border-radius: 50%; background: var(--color-accent); }
+.promotion-index { position: absolute; inset-block-start: 1.25rem; inset-inline-end: 1.25rem; color: var(--color-accent); font-size: .68rem; font-weight: 800; letter-spacing: .1em; }
+.copy-detail { display: grid; grid-template-columns: 1fr auto; gap: .15rem .5rem; margin-block: .8rem; }.copy-detail span { color: #9aa4b5; font-size: .72rem; }.copy-detail strong { grid-column: 1; overflow-wrap: anywhere; color: #fff; font-size: .78rem; }.copy-detail button { grid-column: 2; grid-row: 1 / span 2; align-self: center; width: 2rem; height: 2rem; border: 1px solid rgba(255,255,255,.2); border-radius: .5rem; background: transparent; color: #fff; cursor: pointer; }
+
+.pricing-section .section-heading { margin-block-end: clamp(2rem, 4vw, 3rem); }
+
 .performance-layout {
   display: grid;
   gap: clamp(2.5rem, 7vw, 6rem);
@@ -911,6 +940,57 @@ h3 {
 /* Comparison */
 .comparison-section {
   background: #eef3f7;
+}
+
+.service-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 70rem;
+  margin-inline: auto;
+}
+
+.service-comparison-card {
+  padding: .55rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-comparison-card h3 {
+  margin: 0;
+  padding: .8rem .8rem 1rem;
+  font-size: clamp(.9rem, .83rem + .3vw, 1.08rem);
+}
+
+.service-comparison {
+  --position: 50%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: .69;
+  border-radius: calc(var(--radius-lg) - .35rem);
+  background: #dbe4ea;
+}
+
+.service-comparison__image {
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/sunclean-before-after-services.png");
+  background-position: var(--crop-position);
+  background-size: 400% 200%;
+  background-repeat: no-repeat;
+}
+
+.service-comparison__before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--position);
+  overflow: hidden;
+}
+
+.service-comparison__before .service-comparison__image {
+  right: auto;
 }
 
 .comparison {
