@@ -7,8 +7,13 @@
     padding-inline: .7rem;
   }
 
-  .brand > span:last-child {
-    font-size: .98rem;
+  .brand-symbol {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .brand-wordmark {
+    font-size: .9rem;
   }
 
   .hero-actions .button {

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 560" role="img" aria-labelledby="title">
+  <title id="title">Sunclean Latvia</title>
+  <g fill="none" stroke="#218645" stroke-linecap="round" stroke-width="14">
+    <path d="M250 24v42M170 48l23 37M330 48l-23 37M112 110l38 22M388 110l-38 22M91 190h46"/>
+  </g>
+  <path d="M148 200a102 102 0 0 1 204 0l-204 28Z" fill="#218645"/>
+  <g fill="#fff">
+    <path d="m126 254 82-11-35 58-82 11Z"/>
+    <path d="m222 241 84-11-35 58-84 11Z"/>
+    <path d="m320 228 89-12-36 59-89 12Z"/>
+    <path d="m83 327 82-11-35 58-82 11Z"/>
+    <path d="m179 314 84-11-35 58-84 11Z"/>
+    <path d="m277 301 89-12-36 59-89 12Z"/>
+  </g>
+  <text x="250" y="462" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="800" letter-spacing="-5"><tspan fill="#fff">SUN</tspan><tspan fill="#218645">CLEAN</tspan></text>
+  <g fill="#fff">
+    <rect x="20" y="510" width="72" height="6" rx="3"/>
+    <rect x="408" y="510" width="72" height="6" rx="3"/>
+  </g>
+  <text x="250" y="535" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="800" letter-spacing="8">LATVIA</text>
+</svg>

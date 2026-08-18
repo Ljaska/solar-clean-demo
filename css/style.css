@@ -369,32 +369,27 @@ h3 {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: .65rem;
+  gap: .55rem;
   color: #fff;
-  font-size: clamp(1.05rem, 1rem + .25vw, 1.25rem);
-  font-weight: 800;
-  letter-spacing: -.045em;
   line-height: 1;
 }
 
-.brand > span:last-child > span {
+.brand-symbol {
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: 0 0 auto;
+  background: url("../images/sunclean-logo-symbol-light.png") center / contain no-repeat;
+}
+
+.brand-wordmark {
+  display: inline-flex;
+  font-size: clamp(.95rem, .9rem + .22vw, 1.12rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+
+.brand-wordmark__clean {
   color: var(--color-accent-light);
-}
-
-.brand-mark {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: .6rem;
-  background: var(--color-accent);
-}
-
-.brand-mark svg {
-  width: 1.35rem;
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1.4;
 }
 
 .is-scrolled .brand,
@@ -402,8 +397,15 @@ h3 {
   color: var(--color-dark);
 }
 
-.is-scrolled .brand > span:last-child > span,
-.is-menu-open .brand > span:last-child > span {
+.is-scrolled .brand-symbol,
+.is-menu-open .brand-symbol,
+.legal-header .brand-symbol {
+  background-image: url("../images/sunclean-logo-symbol.png");
+}
+
+.is-scrolled .brand-wordmark__clean,
+.is-menu-open .brand-wordmark__clean,
+.legal-header .brand-wordmark__clean {
   color: var(--color-accent-dark);
 }
 
@@ -1934,6 +1936,16 @@ h3 {
   color: #fff;
 }
 
+.footer-logo-link {
+  display: inline-block;
+}
+
+.footer-logo {
+  display: block;
+  width: clamp(6.75rem, 9vw, 8rem);
+  height: auto;
+}
+
 .footer-brand p {
   max-width: 24rem;
   margin: 1.3rem 0 0;
@@ -2041,10 +2053,6 @@ h3 {
 
 .legal-header .brand {
   color: var(--color-dark);
-}
-
-.legal-header .brand > span:last-child > span {
-  color: var(--color-accent-dark);
 }
 
 .legal-header a:last-child {

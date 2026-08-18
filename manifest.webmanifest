@@ -1,7 +1,7 @@
 {
-  "name": "SolarSpark",
-  "short_name": "SolarSpark",
-  "description": "Professional solar panel cleaning.",
+  "name": "Sunclean Latvia",
+  "short_name": "Sunclean",
+  "description": "Professional property maintenance by Sunclean Latvia.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f8fafc",
