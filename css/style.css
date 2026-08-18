@@ -1701,6 +1701,7 @@ h3 {
   margin: 0;
   color: var(--color-muted);
   font-size: clamp(.87rem, .83rem + .16vw, .96rem);
+  white-space: pre-line;
 }
 
 /* Contact */
