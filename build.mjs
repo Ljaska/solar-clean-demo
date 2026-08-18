@@ -5,6 +5,7 @@ const root = process.cwd();
 const dist = resolve(root, "dist");
 const staticEntries = [
   "index.html",
+  "apply.html",
   "privacy.html",
   "terms.html",
   "robots.txt",

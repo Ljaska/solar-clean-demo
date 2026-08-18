@@ -119,8 +119,14 @@
   }, { threshold: 0.65 });
   counters.forEach((counter) => counterObserver.observe(counter));
 
+  const getLinkedSection = (link) => {
+    const url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin || url.pathname !== window.location.pathname || !url.hash) return null;
+    return document.querySelector(url.hash);
+  };
+
   const observedSections = navLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
+    .map(getLinkedSection)
     .filter(Boolean)
     .sort((firstSection, secondSection) => firstSection.offsetTop - secondSection.offsetTop);
 
@@ -178,7 +184,7 @@
 
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        const destination = document.querySelector(link.getAttribute("href"));
+        const destination = getLinkedSection(link);
         const destinationIndex = observedSections.indexOf(destination);
         if (!destination || destinationIndex < 0) return;
         lockedDestination = destination;

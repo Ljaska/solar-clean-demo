@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Piesakiet Sunclean Latvia īpašuma tīrīšanas pakalpojumu.">
+  <title>Pieteikt pakalpojumu | Sunclean Latvia</title>
+  <link rel="icon" href="favicon/favicon-32x32.png" sizes="32x32"><link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2.4"><link rel="stylesheet" href="css/responsive.css?v=2.4"><link rel="stylesheet" href="css/animations.css?v=2.4"><link rel="stylesheet" href="css/apply.css?v=2.4">
+</head>
+<body class="apply-page" data-page="apply">
+  <a class="skip-link" href="#main-content" data-i18n="ui.skip"></a>
+  <header class="site-header" data-header><div class="container nav-shell">
+    <a class="brand" href="index.html#home" data-i18n-aria="ui.home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 7.5h16a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z"/><path d="M10 12h12M10 17h12M13 8v16M19 8v16"/></svg></span><span>Sun<span>clean</span></span></a>
+    <nav class="site-nav" id="site-nav" data-nav data-i18n-aria="ui.primaryNav"><a href="index.html#about" data-nav-link data-i18n="nav.about"></a><a href="index.html#services" data-nav-link data-i18n="nav.services"></a><a href="index.html#pricing" data-nav-link data-i18n="nav.pricing"></a><a href="index.html#contact" data-nav-link data-i18n="nav.contact"></a></nav>
+    <div class="nav-actions"><div class="language-switcher" role="group" data-i18n-aria="ui.language"><button type="button" data-language="lv">LV</button><button type="button" data-language="en">EN</button><button type="button" data-language="ru">RU</button></div><a class="button button--small nav-cta" href="apply.html" aria-current="page" data-i18n="nav.quote"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-aria="ui.openMenu" data-menu-toggle><span></span><span></span><span></span></button></div>
+  </div></header>
+  <main id="main-content" class="apply-main">
+    <section class="section apply-section"><div class="container application-layout">
+      <div class="application-copy reveal">
+        <p class="eyebrow eyebrow--light" data-i18n="apply.eyebrow"></p>
+        <h1 data-i18n="apply.title"></h1>
+        <p data-i18n="apply.lead"></p>
+      </div>
+      <div class="application-card reveal">
+        <p class="form-required-note" data-i18n="apply.requiredNote"></p>
+        <div class="form-success" role="status" tabindex="-1" data-form-success hidden data-i18n="apply.success"></div>
+        <!-- Placeholder only: replace with the selected form service action URL during future integration. -->
+        <form class="application-form" action="https://example.com/REPLACE_WITH_FORM_ACTION_URL" method="post" novalidate data-application-form>
+          <div class="application-form__grid">
+            <div class="form-field">
+              <label for="application-name" data-i18n="apply.nameLabel"></label>
+              <input id="application-name" name="name" type="text" autocomplete="name" data-i18n-placeholder="apply.namePlaceholder">
+            </div>
+            <div class="form-field">
+              <label for="application-phone"><span data-i18n="apply.phoneLabel"></span> <span class="form-required" aria-hidden="true">*</span></label>
+              <input id="application-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="application-phone-error" data-i18n-placeholder="apply.phonePlaceholder">
+              <p class="form-error" id="application-phone-error" data-error-for="phone"></p>
+            </div>
+            <div class="form-field">
+              <label for="application-email" data-i18n="apply.emailLabel"></label>
+              <input id="application-email" name="email" type="email" autocomplete="email" aria-describedby="application-email-error" data-i18n-placeholder="apply.emailPlaceholder">
+              <p class="form-error" id="application-email-error" data-error-for="email"></p>
+            </div>
+            <div class="form-field">
+              <label for="application-address"><span data-i18n="apply.addressLabel"></span> <span class="form-required" aria-hidden="true">*</span></label>
+              <input id="application-address" name="property_address" type="text" autocomplete="street-address" required aria-describedby="application-address-error" data-i18n-placeholder="apply.addressPlaceholder">
+              <p class="form-error" id="application-address-error" data-error-for="property_address"></p>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="application-service" data-i18n="apply.serviceLabel"></label>
+              <select id="application-service" name="service">
+                <option value="" data-i18n="apply.servicePlaceholder"></option>
+                <option value="solar-panel-cleaning" data-i18n="apply.services.solar"></option>
+                <option value="roof-cleaning" data-i18n="apply.services.roof"></option>
+                <option value="facade-cleaning" data-i18n="apply.services.facade"></option>
+                <option value="pavement-cleaning" data-i18n="apply.services.pavement"></option>
+                <option value="other" data-i18n="apply.services.other"></option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="application-comment" data-i18n="apply.commentLabel"></label>
+              <textarea id="application-comment" name="comment" rows="5" data-i18n-placeholder="apply.commentPlaceholder"></textarea>
+            </div>
+          </div>
+          <button class="button" type="submit" data-i18n="apply.submit"></button>
+        </form>
+      </div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand brand--light" href="index.html#home"><span>Sun<span>clean</span></span></a><p data-i18n="footer.lead"></p></div><div class="footer-column"><h2 data-i18n="footer.company"></h2><p>SIA SUNCLEAN LATVIA</p><div class="copy-detail"><span data-i18n="footer.registration"></span><strong>40203767649</strong><button type="button" data-copy-value="40203767649" data-i18n-aria="contact.copy">⧉</button></div><div class="copy-detail"><span>IBAN</span><strong>LV25UNLA0055006191353</strong><button type="button" data-copy-value="LV25UNLA0055006191353" data-i18n-aria="contact.copy">⧉</button></div></div><div class="footer-column"><h2 data-i18n="footer.contact"></h2><a href="tel:+37120390289">+371 20390289</a><a href="mailto:info@sunclean.lv">info@sunclean.lv</a></div></div><div class="container footer-bottom"><p>© <span data-year>2026</span> SIA SUNCLEAN LATVIA.</p></div></footer>
+  <script src="js/translations.js?v=2.4" defer></script><script src="js/main.js?v=2.4" defer></script><script src="js/apply.js?v=2.4" defer></script>
+</body></html>
