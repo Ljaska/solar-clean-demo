@@ -69,10 +69,11 @@
   };
 
   const submissionData = () => {
-    const data = Object.fromEntries(new FormData(form));
-    data.service = form.elements.service.selectedOptions[0]?.textContent || "";
-    data._url = window.location.href;
-    return data;
+    const formData = new FormData(form);
+    formData.set("name", String(formData.get("name") || "").trim() || "—");
+    formData.set("message", String(formData.get("message") || "").trim() || "—");
+    formData.set("service", form.elements.service.selectedOptions[0]?.textContent.trim() || "—");
+    return Object.fromEntries(formData.entries());
   };
 
   form.addEventListener("submit", async (event) => {
@@ -100,7 +101,8 @@
         body: JSON.stringify(submissionData())
       });
       const result = await response.json().catch(() => null);
-      if (!response.ok || result?.success === false || result?.success === "false") throw new Error("Submission failed");
+      const accepted = result?.success === true || result?.success === "true";
+      if (!response.ok || !accepted) throw new Error("Submission failed");
 
       form.reset();
       clearValidation();
