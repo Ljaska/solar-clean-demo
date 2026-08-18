@@ -6,7 +6,7 @@
   <title>Pieteikt pakalpojumu | Sunclean Latvia</title>
   <link rel="icon" href="favicon/favicon-32x32.png" sizes="32x32"><link rel="manifest" href="manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2.4"><link rel="stylesheet" href="css/responsive.css?v=2.4"><link rel="stylesheet" href="css/animations.css?v=2.4"><link rel="stylesheet" href="css/apply.css?v=2.4">
+  <link rel="stylesheet" href="css/style.css?v=2.4"><link rel="stylesheet" href="css/responsive.css?v=2.4"><link rel="stylesheet" href="css/animations.css?v=2.4"><link rel="stylesheet" href="css/apply.css?v=2.5">
 </head>
 <body class="apply-page" data-page="apply">
   <a class="skip-link" href="#main-content" data-i18n="ui.skip"></a>
@@ -25,8 +25,10 @@
       <div class="application-card reveal">
         <p class="form-required-note" data-i18n="apply.requiredNote"></p>
         <div class="form-success" role="status" tabindex="-1" data-form-success hidden data-i18n="apply.success"></div>
-        <!-- Placeholder only: replace with the selected form service action URL during future integration. -->
-        <form class="application-form" action="https://example.com/REPLACE_WITH_FORM_ACTION_URL" method="post" novalidate data-application-form>
+        <div class="form-submit-error" role="alert" tabindex="-1" data-form-submit-error hidden data-i18n="apply.submitError"></div>
+        <form class="application-form" action="https://formsubmit.co/ajax/info@sunclean.lv" method="post" novalidate data-application-form>
+          <input type="hidden" name="_subject" value="Jauns pakalpojuma pieteikums | Sunclean Latvia">
+          <input type="hidden" name="_template" value="table">
           <div class="application-form__grid">
             <div class="form-field">
               <label for="application-name" data-i18n="apply.nameLabel"></label>
@@ -63,11 +65,11 @@
               <textarea id="application-comment" name="comment" rows="5" data-i18n-placeholder="apply.commentPlaceholder"></textarea>
             </div>
           </div>
-          <button class="button" type="submit" data-i18n="apply.submit"></button>
+          <button class="button" type="submit" data-i18n="apply.submit" data-submit-button></button>
         </form>
       </div>
     </div></section>
   </main>
   <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand brand--light" href="index.html#home"><span>Sun<span>clean</span></span></a><p data-i18n="footer.lead"></p></div><div class="footer-column"><h2 data-i18n="footer.company"></h2><p>SIA SUNCLEAN LATVIA</p><div class="copy-detail"><span data-i18n="footer.registration"></span><strong>40203767649</strong><button type="button" data-copy-value="40203767649" data-i18n-aria="contact.copy">⧉</button></div><div class="copy-detail"><span>IBAN</span><strong>LV25UNLA0055006191353</strong><button type="button" data-copy-value="LV25UNLA0055006191353" data-i18n-aria="contact.copy">⧉</button></div></div><div class="footer-column"><h2 data-i18n="footer.contact"></h2><a href="tel:+37120390289">+371 20390289</a><a href="mailto:info@sunclean.lv">info@sunclean.lv</a></div></div><div class="container footer-bottom"><p>© <span data-year>2026</span> SIA SUNCLEAN LATVIA.</p></div></footer>
-  <script src="js/translations.js?v=2.4" defer></script><script src="js/main.js?v=2.4" defer></script><script src="js/apply.js?v=2.4" defer></script>
+  <script src="js/translations.js?v=2.5" defer></script><script src="js/main.js?v=2.4" defer></script><script src="js/apply.js?v=2.5" defer></script>
 </body></html>
