@@ -1,4 +1,5 @@
 User-agent: *
+
 Allow: /
 
-Sitemap: https://www.solarspark.eu/sitemap.xml
+Sitemap: https://sunclean.lv/sitemap.xml
