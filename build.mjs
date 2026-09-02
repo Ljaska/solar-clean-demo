@@ -6,6 +6,7 @@ const dist = resolve(root, "dist");
 const staticEntries = [
   "index.html",
   "apply.html",
+  "cookies.html",
   "privacy.html",
   "terms.html",
   "robots.txt",
@@ -32,11 +33,11 @@ await writeFile(
   `export default {
   async fetch(request, env) {
     if (env?.ASSETS?.fetch) return env.ASSETS.fetch(request);
-    return new Response("SolarSpark static assets are not bound.", { status: 503 });
+    return new Response("Sunclean Latvia static assets are not bound.", { status: 503 });
   }
 };
 `,
   "utf8"
 );
 
-console.log("SolarSpark production files written to dist/");
+console.log("Sunclean Latvia production files written to dist/");
