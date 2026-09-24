@@ -253,6 +253,77 @@
     });
   }
 
+
+  const COOKIE_CONSENT_KEY = "sunclean-analytics-consent";
+  let analyticsPageViewSent = false;
+
+  const sendAnalyticsPageView = () => {
+    if (analyticsPageViewSent || typeof window.gtag !== "function") return;
+    window.gtag("event", "page_view", {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+    analyticsPageViewSent = true;
+  };
+
+  const setAnalyticsConsent = (granted, persist = true) => {
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        analytics_storage: granted ? "granted" : "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied"
+      });
+      if (granted) sendAnalyticsPageView();
+    }
+    if (persist) localStorage.setItem(COOKIE_CONSENT_KEY, granted ? "granted" : "denied");
+  };
+
+  const createCookieConsent = () => {
+    const existingChoice = localStorage.getItem(COOKIE_CONSENT_KEY);
+    if (existingChoice === "granted") {
+      setAnalyticsConsent(true, false);
+      return;
+    }
+    if (existingChoice === "denied") {
+      setAnalyticsConsent(false, false);
+      return;
+    }
+
+    const banner = document.createElement("aside");
+    banner.className = "cookie-consent";
+    banner.setAttribute("role", "region");
+    banner.setAttribute("aria-live", "polite");
+    banner.innerHTML = `
+      <p class="cookie-consent__text"></p>
+      <div class="cookie-consent__actions">
+        <button class="button cookie-consent__reject" type="button" data-cookie-reject></button>
+        <button class="button" type="button" data-cookie-accept></button>
+      </div>`;
+    document.body.appendChild(banner);
+
+    const renderCookieConsent = () => {
+      const copy = window.SuncleanI18n?.get()?.cookieConsent;
+      if (!copy) return;
+      banner.querySelector(".cookie-consent__text").innerHTML = `${copy.text} <a href="cookies.html">${copy.policy}</a>`;
+      banner.querySelector("[data-cookie-accept]").textContent = copy.accept;
+      banner.querySelector("[data-cookie-reject]").textContent = copy.reject;
+    };
+
+    banner.querySelector("[data-cookie-accept]").addEventListener("click", () => {
+      setAnalyticsConsent(true);
+      banner.remove();
+    });
+    banner.querySelector("[data-cookie-reject]").addEventListener("click", () => {
+      setAnalyticsConsent(false);
+      banner.remove();
+    });
+    window.addEventListener("sunclean:language", renderCookieConsent);
+    renderCookieConsent();
+  };
+
+  createCookieConsent();
+
   const year = document.querySelector("[data-year]");
   if (year) year.textContent = String(new Date().getFullYear());
 
